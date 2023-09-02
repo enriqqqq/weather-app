@@ -1,5 +1,5 @@
 import getData from './api';
-import { updateView } from './dom';
+import { updateUnits, updateView } from './dom';
 import './style.css';
 
 const state = {
@@ -22,12 +22,26 @@ const searchBar = document.getElementById('search');
 const celciusBtn = document.getElementById('celcius');
 const fahrenheitBtn = document.getElementById('fahrenheit');
 
-celciusBtn.addEventListener('click', () => {
+celciusBtn.addEventListener('click', async () => {
+  if (celciusBtn.classList.contains('selected')) {
+    return;
+  }
+
   state.isMetric = true;
+  celciusBtn.classList.add('selected');
+  fahrenheitBtn.classList.remove('selected');
+  updateUnits(state);
 });
 
-fahrenheitBtn.addEventListener('click', () => {
+fahrenheitBtn.addEventListener('click', async () => {
+  if (fahrenheitBtn.classList.contains('selected')) {
+    return;
+  }
+
   state.isMetric = false;
+  celciusBtn.classList.remove('selected');
+  fahrenheitBtn.classList.add('selected');
+  updateUnits(state);
 });
 
 form.addEventListener('submit', async (e) => {

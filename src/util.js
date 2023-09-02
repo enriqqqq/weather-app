@@ -11,6 +11,7 @@ function convertTo12HourFormat(time) {
   return time12;
 }
 
+// get day based on date
 function convertToDay(date) {
   const daysOfWeek = [
     'Sunday',
@@ -25,4 +26,35 @@ function convertToDay(date) {
   return daysOfWeek[dateObj.getDay()];
 }
 
-export { convertTo12HourFormat, convertToDay };
+// Function to convert Celsius to Fahrenheit and round to 1 decimal place
+function celsiusToFahrenheit(celsius) {
+  const fahrenheit = (celsius * 9) / 5 + 32;
+  return fahrenheit.toFixed(1); // Round to 1 decimal place
+}
+
+// Function to convert Fahrenheit to Celsius and round to 1 decimal place
+function fahrenheitToCelsius(fahrenheit) {
+  const celsius = ((fahrenheit - 32) * 5) / 9;
+  return celsius.toFixed(1); // Round to 1 decimal place
+}
+
+// Function to convert kilometers per hour (kph) to miles per hour (mph)
+function kphToMph(kph) {
+  const mph = kph * 0.621371;
+  return mph.toFixed(1); // Round to 1 decimal place
+}
+
+// Function to convert miles per hour (mph) to kilometers per hour (kph)
+function mphToKph(mph) {
+  const kph = mph / 0.621371;
+  return kph.toFixed(1); // Round to 1 decimal place
+}
+
+export {
+  convertTo12HourFormat,
+  convertToDay,
+  celsiusToFahrenheit,
+  fahrenheitToCelsius,
+  mphToKph,
+  kphToMph,
+};

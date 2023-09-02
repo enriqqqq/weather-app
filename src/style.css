@@ -124,3 +124,12 @@ svg {
   gap: 4px;
   font-size: 1.2rem;
 }
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.selected {
+  background-color: white;
+  color: black;
+}

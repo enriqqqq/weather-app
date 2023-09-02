@@ -43,6 +43,7 @@ async function getData(name, state) {
     const [date, time] = datetime.split(' ');
 
     return {
+      location: data.location.name,
       title,
       text: data.current.condition.text,
       icon: data.current.condition.icon,
