@@ -1,20 +1,22 @@
-// api key:
+// api key: 8512492edef6419aa02171515233008
+import format from 'date-fns/format';
+import { convertTo12HourFormat, convertToDay } from './util';
 
 async function getData(name, state) {
   try {
     const response = await fetch(
-      `http://api.weatherapi.com/v1/current.json?key=someAPIKEY&q=${name}&aqi=no`,
+      `http://api.weatherapi.com/v1/current.json?key=8512492edef6419aa02171515233008&q=${name}&aqi=no`,
     );
-    
+
     const data = await response.json();
 
     // if the response is not ok
     if (response.status !== 200) {
-      // pass error message and code to catch block
+      // pass error message to catch block
       throw data.error.message;
     }
 
-    // construct title
+    // construct necessary data
     const title = `${data.location.name}, ${data.location.country}`;
 
     let temp;
@@ -37,6 +39,9 @@ async function getData(name, state) {
     const cloud = `${data.current.cloud}%`;
     const humidity = `${data.current.humidity}%`;
 
+    const datetime = data.location.localtime; // yyyy-mm-dd hh:mm
+    const [date, time] = datetime.split(' ');
+
     return {
       title,
       text: data.current.condition.text,
@@ -46,6 +51,9 @@ async function getData(name, state) {
       wind,
       cloud,
       humidity,
+      date: format(new Date(date), 'd MMMM yyyy'),
+      time: convertTo12HourFormat(time),
+      day: convertToDay(date),
     };
   } catch (error) {
     state.HTMLerror.textContent = error;

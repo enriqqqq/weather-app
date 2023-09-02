@@ -7,6 +7,8 @@ function updateView(data, state) {
   state.HTMLtemp.textContent = data.temp;
   state.HTMLcondition.textContent = data.text;
   state.HTMLweathericon.src = data.icon;
+  state.HTMLtime.textContent = data.time;
+  state.HTMLdaydate.textContent = `${data.day}, ${data.date}`;
 }
 
 function loadForecast() {

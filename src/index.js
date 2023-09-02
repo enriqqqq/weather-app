@@ -13,6 +13,8 @@ const state = {
   HTMLcondition: document.getElementById('condition'),
   HTMLerror: document.getElementById('error'),
   HTMLweathericon: document.getElementById('weather-icon'),
+  HTMLtime: document.getElementById('time'),
+  HTMLdaydate: document.getElementById('daydate'),
 };
 
 const form = document.getElementById('search-form');
