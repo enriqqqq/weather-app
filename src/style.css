@@ -31,6 +31,7 @@ body {
 
 .subtitle {
   font-size: 1rem;
+  white-space: nowrap;
 }
 
 .medium {
@@ -38,7 +39,37 @@ body {
 }
 
 input {
+  width: 12rem;
   color: black;
+  height: 1.8rem;
+  padding: 0.4rem;
+  border-radius: 5px 0px 0px 5px;
+  border: none;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border: none;
+  outline: none;
+}
+
+.search-bar {
+  display: flex;
+}
+
+button {
+  outline: none;
+  border: none;
+  height: 1.8rem;
+  width: 1.8rem;
+  padding: 0.3rem;
+  background-color: white;
+  border-radius: 0px 5px 5px 0px;
+  box-sizing: border-box;
+}
+
+.search-icon {
+  fill: black;
 }
 
 form {
@@ -132,7 +163,8 @@ svg {
   font-size: 1.2rem;
 }
 
-.btn:hover {
+.btn:hover,
+button {
   cursor: pointer;
 }
 
@@ -174,6 +206,7 @@ svg {
   justify-content: center;
   align-items: center;
   gap: 10px;
+  width: fit-content;
 }
 
 .max-min-temp {
@@ -183,4 +216,21 @@ svg {
 
 .max {
   font-weight: 600;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #ffffff;
+  border-radius: 8px;
 }

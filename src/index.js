@@ -56,6 +56,9 @@ dailyBtn.addEventListener('click', async () => {
 
   state.isDaily = true;
 
+  dailyBtn.classList.add('selected');
+  hourlyBtn.classList.remove('selected');
+
   clearContainer(state.HTMLforecastContainer);
 
   // get data
@@ -63,9 +66,6 @@ dailyBtn.addEventListener('click', async () => {
 
   // load forecast
   loadForecast(forecastArray, state);
-
-  dailyBtn.classList.add('selected');
-  hourlyBtn.classList.remove('selected');
 });
 
 hourlyBtn.addEventListener('click', async () => {
@@ -75,6 +75,9 @@ hourlyBtn.addEventListener('click', async () => {
 
   state.isDaily = false;
 
+  hourlyBtn.classList.add('selected');
+  dailyBtn.classList.remove('selected');
+
   clearContainer(state.HTMLforecastContainer);
 
   // get data
@@ -82,9 +85,6 @@ hourlyBtn.addEventListener('click', async () => {
 
   // load forecast
   loadForecast(forecastArray, state);
-
-  hourlyBtn.classList.add('selected');
-  dailyBtn.classList.remove('selected');
 });
 
 form.addEventListener('submit', async (e) => {
@@ -92,22 +92,26 @@ form.addEventListener('submit', async (e) => {
 
   const data = await getData(searchBar.value, state);
 
-  if (data) {
-    // clear search bar
-    searchBar.value = '';
-
-    // clear error message
-    state.HTMLerror.textContent = '';
-
-    // update data view
-    updateView(data, state);
-
-    // load forecast
-    loadForecast(data, state);
-
-    // save location name;
-    locationName = data.location.name;
+  if (!data) {
+    return;
   }
+  // clear search bar
+  searchBar.value = '';
+
+  // clear error message
+  state.HTMLerror.textContent = '';
+
+  // update data view
+  updateView(data, state);
+
+  // clear forecast container
+  clearContainer(state.HTMLforecastContainer);
+
+  // load forecast
+  loadForecast(data.forecast, state);
+
+  // save location name;
+  locationName = data.location;
 });
 
 // initial load
