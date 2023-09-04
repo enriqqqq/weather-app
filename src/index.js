@@ -35,7 +35,14 @@ celciusBtn.addEventListener('click', async () => {
   state.isMetric = true;
   celciusBtn.classList.add('selected');
   fahrenheitBtn.classList.remove('selected');
+
+  // update units
   updateUnits(state);
+
+  // update forecast
+  const data = await getData(locationName, state, 'forecast');
+  clearContainer(state.HTMLforecastContainer);
+  loadForecast(data, state);
 });
 
 fahrenheitBtn.addEventListener('click', async () => {
@@ -46,7 +53,14 @@ fahrenheitBtn.addEventListener('click', async () => {
   state.isMetric = false;
   celciusBtn.classList.remove('selected');
   fahrenheitBtn.classList.add('selected');
+
+  // update units
   updateUnits(state);
+
+  // update forecast
+  const data = await getData(locationName, state, 'forecast');
+  clearContainer(state.HTMLforecastContainer);
+  loadForecast(data, state);
 });
 
 dailyBtn.addEventListener('click', async () => {
