@@ -12,7 +12,7 @@ function convertTo12HourFormat(time) {
 }
 
 // get day based on date
-function convertToDay(date) {
+function convertToDay(date, abbreviation = false) {
   const daysOfWeek = [
     'Sunday',
     'Monday',
@@ -23,6 +23,13 @@ function convertToDay(date) {
     'Saturday',
   ];
   const dateObj = new Date(date);
+
+  // e.g Mon, Tue, Wed
+  if (abbreviation) {
+    return daysOfWeek[dateObj.getDay()].slice(0, 3);
+  }
+
+  // e.g Monday, Tuesday
   return daysOfWeek[dateObj.getDay()];
 }
 

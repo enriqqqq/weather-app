@@ -8,6 +8,9 @@ body {
   background-image: url('../src/images/background1.jpeg');
   background-size: cover;
   background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .header {
@@ -28,6 +31,10 @@ body {
 
 .subtitle {
   font-size: 1rem;
+}
+
+.medium {
+  font-size: 1.7rem;
 }
 
 input {
@@ -132,4 +139,48 @@ svg {
 .selected {
   background-color: white;
   color: black;
+}
+
+.forecasts {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  gap: 20px;
+  flex: auto;
+  justify-content: flex-end;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 5vw;
+  justify-content: flex-start;
+}
+
+.container {
+  display: flex;
+  gap: 30px;
+  width: 90vw;
+  overflow-x: scroll;
+  box-sizing: border-box;
+  align-self: center;
+  padding: 25px;
+}
+
+.forecast-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.max-min-temp {
+  display: flex;
+  gap: 5px;
+}
+
+.max {
+  font-weight: 600;
 }

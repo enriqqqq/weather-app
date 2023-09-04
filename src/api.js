@@ -2,10 +2,10 @@
 import format from 'date-fns/format';
 import { convertTo12HourFormat, convertToDay } from './util';
 
-async function getData(name, state) {
+async function getData(name, state, specific = undefined) {
   try {
     const response = await fetch(
-      `http://api.weatherapi.com/v1/current.json?key=8512492edef6419aa02171515233008&q=${name}&aqi=no`,
+      `http://api.weatherapi.com/v1/forecast.json?key=8512492edef6419aa02171515233008&q=${name}&days=7&alerts=no&aqi=no`,
     );
 
     const data = await response.json();
@@ -17,6 +17,11 @@ async function getData(name, state) {
     }
 
     // construct necessary data
+    const forecast = data.forecast.forecastday;
+    if (specific === 'forecast') {
+      return forecast;
+    }
+
     const title = `${data.location.name}, ${data.location.country}`;
 
     let temp;
@@ -55,6 +60,7 @@ async function getData(name, state) {
       date: format(new Date(date), 'd MMMM yyyy'),
       time: convertTo12HourFormat(time),
       day: convertToDay(date),
+      forecast,
     };
   } catch (error) {
     state.HTMLerror.textContent = error;
