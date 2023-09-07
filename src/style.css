@@ -202,8 +202,6 @@ button {
   flex-direction: column;
   margin-bottom: 50px;
   gap: 20px;
-  flex: auto;
-  justify-content: flex-end;
 }
 
 .top {
