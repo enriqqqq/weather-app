@@ -5,7 +5,7 @@ import { convertTo12HourFormat, convertToDay } from './util';
 async function getData(name, state, specific = undefined) {
   try {
     const response = await fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=8512492edef6419aa02171515233008&q=${name}&days=7&alerts=no&aqi=no`,
+      `https://api.weatherapi.com/v1/forecast.json?key=8512492edef6419aa02171515233008&q=${name}&days=7&alerts=no&aqi=no`,
     );
 
     const data = await response.json();
