@@ -50,6 +50,7 @@ async function getData(name, state, specific = undefined) {
     return {
       location: data.location.name,
       title,
+      code: data.current.condition.code,
       text: data.current.condition.text,
       icon: data.current.condition.icon,
       temp,

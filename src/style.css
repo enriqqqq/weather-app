@@ -1,16 +1,33 @@
+@font-face {
+  font-family: 'Oswald';
+  src: url('./fonts/Oswald/Oswald-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'Barlow-Medium';
+  src: url('./fonts/Barlow/Barlow-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Barlow-Black';
+  src: url('./fonts/Barlow/Barlow-Black.ttf');
+}
+
 * {
   padding: 0;
   margin: 0;
   color: white;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 body {
-  background-image: url('../src/images/background1.jpeg');
+  background-image: url('../src/images/thunderstorm.jpg');
   background-size: cover;
   background-attachment: fixed;
   display: flex;
   flex-direction: column;
   height: 100vh;
+  justify-content: space-between;
 }
 
 .header {
@@ -23,19 +40,26 @@ body {
 
 .title {
   font-size: 3rem;
+  font-family: 'Oswald';
 }
 
 .small {
-  font-size: 0.8rem;
+  font-size: 1rem;
+  font-family: 'Barlow-Black';
 }
 
 .subtitle {
   font-size: 1rem;
   white-space: nowrap;
+  font-family: 'Barlow-Medium';
 }
 
 .medium {
   font-size: 1.7rem;
+}
+
+#error {
+  font-size: 0.8rem;
 }
 
 input {
@@ -219,6 +243,7 @@ button {
 }
 
 /* ===== Scrollbar CSS ===== */
+/* https://codepen.io/stephenpaton-tech/full/JjRvGmY */
 /* Firefox */
 * {
   scrollbar-width: auto;

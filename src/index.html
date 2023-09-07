@@ -9,7 +9,12 @@
     <div class="header">
       <form action="" class="search" id="search-form">
         <div class="search-bar">
-          <input type="text" id="search" placeholder="Search location..." />
+          <input
+            type="text"
+            id="search"
+            autocomplete="off"
+            placeholder="Search location..."
+          />
           <button type="submit">
             <svg
               class="search-icon"
@@ -23,7 +28,7 @@
             </svg>
           </button>
         </div>
-        <div id="error" class="small"></div>
+        <div id="error"></div>
       </form>
       <div class="location-ctn">
         <div class="title" style="text-align: center" id="title">
@@ -60,7 +65,7 @@
             </svg>
           </div>
           <div class="data-text">
-            <p>Feels Like</p>
+            <p class="subtitle">Feels Like</p>
             <p id="feels-like"></p>
           </div>
         </div>
@@ -74,7 +79,7 @@
             </svg>
           </div>
           <div class="data-text">
-            <p>Humidity</p>
+            <p class="subtitle">Humidity</p>
             <p id="humidity"></p>
           </div>
         </div>
@@ -88,7 +93,7 @@
             </svg>
           </div>
           <div class="data-text">
-            <p>Cloud</p>
+            <p class="subtitle">Cloud</p>
             <p id="cloud"></p>
           </div>
         </div>
@@ -102,7 +107,7 @@
             </svg>
           </div>
           <div class="data-text">
-            <p>Wind Speed</p>
+            <p class="subtitle">Wind Speed</p>
             <p id="wind"></p>
           </div>
         </div>
