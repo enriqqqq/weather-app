@@ -21,7 +21,7 @@
 }
 
 body {
-  background-image: url('../src/images/thunderstorm.jpg');
+  background-image: url('../src/images/default.jpeg');
   background-size: cover;
   background-attachment: fixed;
   display: flex;
